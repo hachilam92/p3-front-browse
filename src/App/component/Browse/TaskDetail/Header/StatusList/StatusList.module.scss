@@ -1,0 +1,22 @@
+%status{
+  display: inline-block;
+  border-radius: 10px;
+  padding: 2px 12px;
+}
+
+.status-list{
+  margin: 20px 0;
+  display: flex;
+
+  .status{
+    @extend %status;
+    color: rgb(187, 194, 220);
+  }
+
+  .status-active{
+    @extend %status;
+    color: green;
+    background-color: rgb(229, 240, 217);
+  }
+
+}

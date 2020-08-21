@@ -4,17 +4,21 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 
 import {PosterInfoList} from './PosterInfoList';
+import {StatusList} from './StatusList'; 
 
 function Header({info}) {
   const {title, status, budget, poster, location, due} = info;
-  const {name} = poster;
   const cx = classNames.bind(styles);
-  console.log(poster);
+
   return (
     <div className = {cx('header')}>
       <div className = {cx('detail-panel')}>
-        <div className = {cx('status')}>{status}</div>
-        <div className = {cx('title')}>{title}</div>
+        <div className = {cx('status-bar')}>
+          <StatusList status ={status}/>
+        </div>
+        <div className = {cx('title')}>
+          <h1>{title}</h1>
+        </div>
         <PosterInfoList>
           {poster}{location}{due}
         </PosterInfoList>
