@@ -10,6 +10,7 @@ function PosterInfoList({children}) {
 
   const posterInfoList = titleList.map((title, index) =>
     <PosterInfoItem
+      key = {title}
       title = {title}
       content = {children[index]}
     />

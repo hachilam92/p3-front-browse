@@ -8,7 +8,10 @@ function StatusList({status}) {
   
   const cx = classNames.bind(styles);
   const statusList = statusNameList.map((statusName) =>
-    <div className = {cx((status.toUpperCase() === statusName)? 'status-active':'status')}>
+    <div 
+      className = {cx((status.toUpperCase() === statusName)? 'status-active':'status')}
+      key = {statusName}
+    >
       {statusName}
     </div>
   );
