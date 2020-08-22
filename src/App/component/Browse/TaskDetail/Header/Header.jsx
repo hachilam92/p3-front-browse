@@ -5,26 +5,33 @@ import styles from './Header.module.scss';
 
 import {PosterInfoList} from './PosterInfoList';
 import {StatusList} from './StatusList'; 
+import {TaskConsumer} from '../../Context';
 
-function Header({info}) {
-  const {title, status, poster, location, due} = info;
+function Header() {
   const cx = classNames.bind(styles);
 
   return (
     <div className = {cx('header')}>
       <div className = {cx('detail-panel')}>
         <div className = {cx('status-bar')}>
-          <StatusList status ={status}/>
+          <StatusList/>
         </div>
-        <div className = {cx('title')}>
-          <h1>{title}</h1>
-        </div>
-        <PosterInfoList>
-          {poster}{location}{due}
-        </PosterInfoList>
+        <TaskConsumer>
+          {value =>
+            <>
+              <div className = {cx('title')}>
+                <h1>{value.title}</h1>
+              </div>
+              <PosterInfoList>
+                {value.poster}{value.location}{value.due}
+              </PosterInfoList>
+            </>
+          }
+        </TaskConsumer>
       </div>
       <div className ={cx('sidebar')}></div>
     </div>
+    
  );
 }
 

@@ -5,11 +5,11 @@ import styles from './SideBar.module.scss';
 
 import {PaymentPanel} from './PaymentPanel';
 
-function SideBar({children}) {
+function SideBar() {
   const cx = classNames.bind(styles);
   return(
     <div className = {cx('side-bar')}>
-      <PaymentPanel budget = {children}/>
+      <PaymentPanel/>
     </div>
   );
 }

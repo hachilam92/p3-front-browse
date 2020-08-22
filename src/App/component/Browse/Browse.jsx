@@ -5,6 +5,8 @@ import styles from './Browse.module.scss';
 
 import {TaskList} from './TaskList';
 import {TaskDetail} from './TaskDetail'
+import {setTaskProvider} from './Context';
+import { SetTaskProvider } from './Context/TaskContext';
 
 const testData = {
   title: 'Roof repair',
@@ -36,15 +38,16 @@ const dataArray = createData(10, testData);
 const currentData = dataArray[0];
 
 function Browse() {
+  
   const cx = classNames.bind(styles);
   return(
     <div className = {cx('browse')}>
       <TaskList>
         {dataArray}
       </TaskList>
-      <TaskDetail>
-        {currentData}
-      </TaskDetail>
+      <SetTaskProvider task = {currentData}>
+        <TaskDetail/>
+      </SetTaskProvider>
     </div>
   );
 }

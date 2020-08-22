@@ -3,17 +3,23 @@ import classNames from 'classnames/bind';
 
 import styles from './StatusList.module.scss';
 
-function StatusList({status}) {
+import {TaskConsumer} from '../../../Context';
+
+function StatusList() {
   const statusNameList = ['OPEN', 'ASSIGN', 'COMPLETED'];
   
   const cx = classNames.bind(styles);
   const statusList = statusNameList.map((statusName) =>
-    <div 
-      className = {cx((status.toUpperCase() === statusName)? 'status-active':'status')}
-      key = {statusName}
-    >
-      {statusName}
-    </div>
+    <TaskConsumer>
+      {value =>
+        <div 
+          className = {cx((value.status.toUpperCase() === statusName)? 'status-active':'status')}
+          key = {statusName}
+        >
+          {statusName}
+        </div>
+      }
+    </TaskConsumer>
   );
 
   return (

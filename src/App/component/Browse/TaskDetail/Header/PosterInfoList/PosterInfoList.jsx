@@ -15,7 +15,6 @@ function PosterInfoList({children}) {
       content = {children[index]}
     />
   );
-
   const cx = classNames.bind(styles);
   
   return (
