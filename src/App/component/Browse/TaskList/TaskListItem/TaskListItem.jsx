@@ -3,13 +3,12 @@ import classNames from 'classnames/bind';
 
 import styles from './TaskListItem.module.scss';
 
-import avatar from "../../../../../img/avatar-64.png";
-
 function TaskListItem({data}) {
   const {
     title,
     status,
     budget,
+    poster,
     location,
     due,
   } = data;
@@ -26,7 +25,7 @@ function TaskListItem({data}) {
       </div>
       <div className = {cx('content')}>
         <div className = {cx('avatar')}>
-          <img src = {avatar} alt = 'avatar'/>
+          <img src = {poster.avatar} alt = 'avatar'/>
         </div>
         <div className = {cx('location')}>
           {location}

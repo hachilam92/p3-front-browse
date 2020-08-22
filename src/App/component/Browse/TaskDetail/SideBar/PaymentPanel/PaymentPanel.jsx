@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import styles from './PaymentPanel.module.scss';
 
 import {TaskConsumer} from '../../../Context';
+import {Button} from '../../../../Button';
 
 function PaymentPanel() {
   const cx = classNames.bind(styles);
@@ -22,7 +23,7 @@ function PaymentPanel() {
         }
       </TaskConsumer>
       <div className = {cx('button-wrapper')}>
-        <button className = {cx('button')}>{buttonLabel}</button>
+        <Button label = {buttonLabel}/>
       </div>
     </div>
   );

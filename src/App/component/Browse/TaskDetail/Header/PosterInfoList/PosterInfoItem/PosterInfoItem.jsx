@@ -13,7 +13,12 @@ function PosterInfoItem({title, content}) {
           'avatar': title === 'POSTED BY',
           'location-icon': title === 'LOCATION',
           'date-icon': title === 'DUE DATE', 
-          })}>
+        })}>
+          {(title === 'POSTED BY')?
+            <img src = {content.avatar} alt = 'avatar'/>
+          : 
+            ''
+          }
         </div>
       </div>
       <div className = {cx('poster-detail')}>

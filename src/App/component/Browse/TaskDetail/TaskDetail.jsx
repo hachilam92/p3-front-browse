@@ -7,9 +7,12 @@ import {Header} from './Header';
 import {Section} from './Section';
 import {SideBar} from './SideBar';
 import {TaskConsumer} from '../Context';
+import {Button} from '../../Button';
 
 function TaskDetail() {
   const cx = classNames.bind(styles);
+  const offerButtonLabel = 'Make an offer';
+
   return(
     <div className = {cx('task-detail')}>
       <SideBar/>
@@ -21,7 +24,12 @@ function TaskDetail() {
           </Section>
         }
       </TaskConsumer>
-      <Section title = 'OFFER'></Section>
+      <Section title = 'OFFER'>
+        <div className = {cx('offer-icon')}></div>
+        <div className = {cx('button-wrapper')}>
+          <Button label = {offerButtonLabel}/>
+        </div>
+      </Section>
     </div>
   );
 }

@@ -53,7 +53,14 @@ $date-icon-url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqa
   @extend %icon;
   border: 1px solid #bbc2dc;
   border-radius: 50%;
-  background-image: url('../../../../../../../img/avatar-64.png');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img{
+    width: 80%;
+    height: 80%;
+  }
 }
 
 .location-icon{
