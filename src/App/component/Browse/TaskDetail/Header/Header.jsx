@@ -7,7 +7,7 @@ import {PosterInfoList} from './PosterInfoList';
 import {StatusList} from './StatusList'; 
 
 function Header({info}) {
-  const {title, status, budget, poster, location, due} = info;
+  const {title, status, poster, location, due} = info;
   const cx = classNames.bind(styles);
 
   return (

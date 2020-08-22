@@ -10,7 +10,6 @@ function TaskListItem({data}) {
     title,
     status,
     budget,
-    poster,
     location,
     due,
   } = data;
