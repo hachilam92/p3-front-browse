@@ -8,6 +8,7 @@ import {Section} from './Section';
 import {SideBar} from './SideBar';
 import {TaskConsumer} from '../Context';
 import {Button} from '../../Button';
+import {Question} from './Question';
 
 function TaskDetail() {
   const cx = classNames.bind(styles);
@@ -30,6 +31,7 @@ function TaskDetail() {
           <Button label = {offerButtonLabel}/>
         </div>
       </Section>
+      <Question/>
     </div>
   );
 }

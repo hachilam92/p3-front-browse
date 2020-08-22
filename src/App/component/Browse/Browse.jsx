@@ -37,8 +37,8 @@ const dataArray = createData(10, testData);
 const currentData = dataArray[0];
 
 function Browse() {
-  
   const cx = classNames.bind(styles);
+
   return(
     <div className = {cx('browse')}>
       <TaskList>
