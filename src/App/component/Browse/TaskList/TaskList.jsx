@@ -5,12 +5,15 @@ import {connect} from 'react-redux';
 import styles from './TaskList.module.scss';
 
 import {TaskListItem} from './TaskListItem';
+import * as Action from '../Store/Action';
 
-function TaskList({taskList}) {
-  const displayTasks = taskList.map((data) => 
+function TaskList(props) {
+
+  const displayTasks = props.taskList.map((data) => 
     <TaskListItem
       key = {data.id}
       data = {data}
+      onClick = {props.select}
     />
   );
   const cx = classNames.bind(styles);
@@ -27,4 +30,13 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(TaskList);
+function mapDispatchToProps(dispatch) {
+  return {
+    select: (index) => {
+      console.log('select');
+      return dispatch(Action.select(index));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

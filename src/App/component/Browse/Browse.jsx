@@ -5,9 +5,9 @@ import {Provider} from 'react-redux';
 import styles from './Browse.module.scss';
 
 import {TaskList} from './TaskList';
-import {TaskDetail} from './TaskDetail'
+import {TaskDetail} from './TaskDetail';
 import {store} from './Store';
-import * as Action from './Action';
+import * as Action from './Store/Action';
 
 const testData = {
   title: 'Roof repair',
@@ -36,7 +36,7 @@ function createData(size, data) {
 }
 
 const dataArray = createData(10, testData);
-
+dataArray[1].title = 'Wall repair';
 
 
 function Browse() {

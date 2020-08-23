@@ -10,9 +10,10 @@ import {SideBar} from './SideBar';
 import {Button} from '../../Button';
 import {Question} from './Question';
 
-function TaskDetail({details}) {
+function TaskDetail({details, id}) {
   const cx = classNames.bind(styles);
   const offerButtonLabel = 'Make an offer';
+  console.log(id);
 
   return(
     <div className = {cx('task-detail')}>
@@ -35,7 +36,8 @@ function TaskDetail({details}) {
 function mapStateToProps(state) {
   const task = state.taskList[state.taskIndex];
   return {
-    details: task.details, 
+    details: task.details,
+    id: task.id 
   };
 }
 

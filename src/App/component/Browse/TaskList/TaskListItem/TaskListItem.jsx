@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import styles from './TaskListItem.module.scss';
 
-function TaskListItem({data}) {
+function TaskListItem(props) {
   const {
     title,
     status,
@@ -11,10 +11,19 @@ function TaskListItem({data}) {
     poster,
     location,
     due,
-  } = data;
+    id
+  } = props.data;
+
+  function handleClick() {
+    props.onClick(id);
+  }
+
   const cx = classNames.bind(styles);
   return(
-    <div className = {cx('task-list-item')}>
+    <div 
+      className = {cx('task-list-item')}
+      onClick = {handleClick}
+    >
       <div className = {cx('header')}>
         <div className = {cx('title')}>
           {title}
@@ -43,4 +52,4 @@ function TaskListItem({data}) {
   );
 }
 
-export default TaskListItem;
+export default TaskListItem
