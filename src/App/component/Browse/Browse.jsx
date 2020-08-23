@@ -6,7 +6,6 @@ import styles from './Browse.module.scss';
 
 import {TaskList} from './TaskList';
 import {TaskDetail} from './TaskDetail'
-import {SetTaskProvider} from './Context';
 import {store} from './Store';
 import * as Action from './Action';
 
@@ -54,10 +53,6 @@ function Browse() {
   selectTask(0);
 
   const cx = classNames.bind(styles);
-
-  const taskArray = store.getState().taskList;
-  const taskIndex = store.getState().taskIndex;
-  const task = taskArray[taskIndex];
 
   return(
     <div className = {cx('browse')}>

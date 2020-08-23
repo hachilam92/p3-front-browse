@@ -1,1 +1,0 @@
-export {SetTaskProvider, TaskConsumer} from './TaskContext';
