@@ -1,16 +1,16 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import {connect} from 'react-redux';
 
 import styles from './TaskDetail.module.scss';
 
 import {Header} from './Header';
 import {Section} from './Section';
 import {SideBar} from './SideBar';
-import {TaskConsumer} from '../Context';
 import {Button} from '../../Button';
 import {Question} from './Question';
 
-function TaskDetail() {
+function TaskDetail({details}) {
   const cx = classNames.bind(styles);
   const offerButtonLabel = 'Make an offer';
 
@@ -18,13 +18,9 @@ function TaskDetail() {
     <div className = {cx('task-detail')}>
       <SideBar/>
       <Header/>
-      <TaskConsumer>
-        {value =>
-          <Section title = 'DETAILS'>
-            {value.details}
-          </Section>
-        }
-      </TaskConsumer>
+      <Section title = 'DETAILS'>
+        {details}
+      </Section>
       <Section title = 'OFFER'>
         <div className = {cx('offer-icon')}></div>
         <div className = {cx('button-wrapper')}>
@@ -36,5 +32,12 @@ function TaskDetail() {
   );
 }
 
-export default TaskDetail;
+function mapStateToProps(state) {
+  const task = state.taskList[state.taskIndex];
+  return {
+    details: task.details, 
+  };
+}
+
+export default connect(mapStateToProps)(TaskDetail);
 

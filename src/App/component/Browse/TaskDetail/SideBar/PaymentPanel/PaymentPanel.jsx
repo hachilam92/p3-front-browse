@@ -1,12 +1,12 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import {connect} from 'react-redux';
 
 import styles from './PaymentPanel.module.scss';
 
-import {TaskConsumer} from '../../../Context';
 import {Button} from '../../../../Button';
 
-function PaymentPanel() {
+function PaymentPanel({budget}) {
   const cx = classNames.bind(styles);
   const title = 'TASK BUDGET';
   const buttonLabel = 'Make an offer';
@@ -15,13 +15,9 @@ function PaymentPanel() {
       <div className = {cx('title')}>
         {title}
       </div>
-      <TaskConsumer>
-        {value => 
-          <div className = {cx('price')}>
-            ${value.budget}
-          </div>
-        }
-      </TaskConsumer>
+      <div className = {cx('price')}>
+        ${budget}
+      </div>
       <div className = {cx('button-wrapper')}>
         <Button label = {buttonLabel}/>
       </div>
@@ -29,4 +25,12 @@ function PaymentPanel() {
   );
 }
 
-export default PaymentPanel;
+function mapStateToProps(state) {
+  const task = state.taskList[state.taskIndex];
+  const {budget} = task;
+  return {
+    budget  
+  };
+}
+
+export default connect(mapStateToProps)(PaymentPanel);

@@ -1,12 +1,13 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import {connect} from 'react-redux';
 
 import styles from './TaskList.module.scss';
 
 import {TaskListItem} from './TaskListItem';
 
-function TaskList({children}) {
-  const taskList = children.map((data) => 
+function TaskList({taskList}) {
+  const displayTasks = taskList.map((data) => 
     <TaskListItem
       key = {data.id}
       data = {data}
@@ -15,9 +16,15 @@ function TaskList({children}) {
   const cx = classNames.bind(styles);
   return(
     <div className = {cx('task-list')}>
-      {taskList}
+      {displayTasks}
     </div>
   );
 }
 
-export default TaskList;
+function mapStateToProps(state) {
+  return {
+    taskList: state.taskList
+  }
+}
+
+export default connect(mapStateToProps)(TaskList);

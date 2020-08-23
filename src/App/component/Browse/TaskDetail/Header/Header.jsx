@@ -1,13 +1,18 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import {connect} from 'react-redux';
 
 import styles from './Header.module.scss';
 
 import {PosterInfoList} from './PosterInfoList';
 import {StatusList} from './StatusList'; 
-import {TaskConsumer} from '../../Context';
 
-function Header() {
+function Header({
+  title, 
+  poster, 
+  location, 
+  due,  
+}) {
   const cx = classNames.bind(styles);
 
   return (
@@ -16,18 +21,12 @@ function Header() {
         <div className = {cx('status-bar')}>
           <StatusList/>
         </div>
-        <TaskConsumer>
-          {value =>
-            <>
-              <div className = {cx('title')}>
-                <h1>{value.title}</h1>
-              </div>
-              <PosterInfoList>
-                {value.poster}{value.location}{value.due}
-              </PosterInfoList>
-            </>
-          }
-        </TaskConsumer>
+        <div className = {cx('title')}>
+          <h1>{title}</h1>
+        </div>
+        <PosterInfoList>
+          {poster}{location}{due}
+        </PosterInfoList>
       </div>
       <div className ={cx('sidebar')}></div>
     </div>
@@ -35,7 +34,18 @@ function Header() {
  );
 }
 
-export default Header;
+function mapStateToProps(state) {
+  const task = state.taskList[state.taskIndex];
+  const {title, poster, location, due} = task;
+  return {
+    title, 
+    poster, 
+    location, 
+    due,  
+  };
+}
+
+export default connect(mapStateToProps)(Header);
 
 
 

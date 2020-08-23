@@ -1,11 +1,14 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import {Provider} from 'react-redux';
 
 import styles from './Browse.module.scss';
 
 import {TaskList} from './TaskList';
 import {TaskDetail} from './TaskDetail'
 import {SetTaskProvider} from './Context';
+import {store} from './Store';
+import * as Action from './Action';
 
 const testData = {
   title: 'Roof repair',
@@ -34,19 +37,34 @@ function createData(size, data) {
 }
 
 const dataArray = createData(10, testData);
-const currentData = dataArray[0];
+
+
 
 function Browse() {
+
+  function initializeTaskList(taskList) {
+    store.dispatch(Action.initialize(taskList));
+  }
+
+  function selectTask(index) {
+    store.dispatch(Action.select(index));
+  }
+
+  initializeTaskList(dataArray);
+  selectTask(0);
+
   const cx = classNames.bind(styles);
+
+  const taskArray = store.getState().taskList;
+  const taskIndex = store.getState().taskIndex;
+  const task = taskArray[taskIndex];
 
   return(
     <div className = {cx('browse')}>
-      <TaskList>
-        {dataArray}
-      </TaskList>
-      <SetTaskProvider task = {currentData}>
+      <Provider store = {store}>
+        <TaskList/>
         <TaskDetail/>
-      </SetTaskProvider>
+      </Provider>
     </div>
   );
 }

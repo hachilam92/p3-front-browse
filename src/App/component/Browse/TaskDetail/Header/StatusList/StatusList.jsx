@@ -1,25 +1,20 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import {connect} from 'react-redux';
 
 import styles from './StatusList.module.scss';
 
-import {TaskConsumer} from '../../../Context';
-
-function StatusList() {
+function StatusList({status}) {
   const statusNameList = ['OPEN', 'ASSIGN', 'COMPLETED'];
   
   const cx = classNames.bind(styles);
   const statusList = statusNameList.map((statusName) =>
-    <TaskConsumer>
-      {value =>
-        <div 
-          className = {cx((value.status.toUpperCase() === statusName)? 'status-active':'status')}
-          key = {statusName}
-        >
-          {statusName}
-        </div>
-      }
-    </TaskConsumer>
+    <div 
+      className = {cx((status.toUpperCase() === statusName)? 'status-active':'status')}
+      key = {statusName}
+    >
+      {statusName}
+    </div>
   );
 
   return (
@@ -30,4 +25,12 @@ function StatusList() {
 
 }
 
-export default StatusList;
+function mapStateToProps(state) {
+  const task = state.taskList[state.taskIndex];
+  const {status} = task;
+  return {
+    status 
+  };
+}
+
+export default connect(mapStateToProps)(StatusList);
