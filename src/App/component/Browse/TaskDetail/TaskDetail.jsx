@@ -6,12 +6,12 @@ import styles from './TaskDetail.module.scss';
 import {Header} from './Header';
 import {Section} from './Section';
 import {SideBar} from './SideBar';
-import {Button} from '../../Button';
+import {OfferButton} from './OfferButton';
 import {Question} from './Question';
 
-function TaskDetail({details, id}) {
-  const offerButtonLabel = 'Make an offer';
-  console.log(id);
+
+function TaskDetail({status, details}) {
+  const active = (status !== 'expired');
 
   return(
     <div className = {styles.task_detail}>
@@ -23,7 +23,7 @@ function TaskDetail({details, id}) {
       <Section title = 'OFFER'>
         <div className = {styles.offer_icon}></div>
         <div className = {styles.button_wrapper}>
-          <Button label = {offerButtonLabel}/>
+          <OfferButton active = {active}/>
         </div>
       </Section>
       <Question/>
@@ -33,9 +33,10 @@ function TaskDetail({details, id}) {
 
 function mapStateToProps(state) {
   const task = state.taskList[state.taskIndex];
+  const {status, details} = task;
   return {
-    details: task.details,
-    id: task.id 
+    status, 
+    details,  
   };
 }
 

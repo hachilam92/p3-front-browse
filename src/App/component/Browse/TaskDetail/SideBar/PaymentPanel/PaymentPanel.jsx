@@ -3,11 +3,12 @@ import {connect} from 'react-redux';
 
 import styles from './PaymentPanel.module.scss';
 
-import {Button} from '../../../../Button';
+import {OfferButton} from '../../OfferButton';
 
-function PaymentPanel({budget}) {
+function PaymentPanel({status, budget}) {
   const title = 'TASK BUDGET';
-  const buttonLabel = 'Make an offer';
+  const active = (status !== 'expired');
+  console.log(status);
   return(
     <div className = {styles.payment_panel}>
       <div className = {styles.title}>
@@ -17,7 +18,7 @@ function PaymentPanel({budget}) {
         ${budget}
       </div>
       <div className = {styles.button_wrapper}>
-        <Button label = {buttonLabel}/>
+        <OfferButton active = {active}/>
       </div>
     </div>
   );
@@ -25,9 +26,10 @@ function PaymentPanel({budget}) {
 
 function mapStateToProps(state) {
   const task = state.taskList[state.taskIndex];
-  const {budget} = task;
+  const {status, budget} = task;
   return {
-    budget  
+    status,
+    budget,   
   };
 }
 
