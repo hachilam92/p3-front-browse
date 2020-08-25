@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 import {connect} from 'react-redux';
 
 import styles from './TaskList.module.scss';
@@ -16,9 +15,9 @@ function TaskList(props) {
       onClick = {props.select}
     />
   );
-  const cx = classNames.bind(styles);
+
   return(
-    <div className = {cx('task-list')}>
+    <div className = {styles.task_list}>
       {displayTasks}
     </div>
   );

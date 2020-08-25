@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 import {connect} from 'react-redux';
 
 import styles from './Header.module.scss';
@@ -13,22 +12,21 @@ function Header({
   location, 
   due,  
 }) {
-  const cx = classNames.bind(styles);
 
   return (
-    <div className = {cx('header')}>
-      <div className = {cx('detail-panel')}>
-        <div className = {cx('status-bar')}>
+    <div className = {styles.header}>
+      <div className = {styles.detail_panel}>
+        <div className = {styles.status_bar}>
           <StatusList/>
         </div>
-        <div className = {cx('title')}>
+        <div className = {styles.title}>
           <h1>{title}</h1>
         </div>
         <PosterInfoList>
           {poster}{location}{due}
         </PosterInfoList>
       </div>
-      <div className ={cx('sidebar')}></div>
+      <div className ={styles.sidebar}></div>
     </div>
     
  );

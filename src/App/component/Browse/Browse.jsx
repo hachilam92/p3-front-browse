@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 import {Provider} from 'react-redux';
 
 import styles from './Browse.module.scss';
@@ -52,10 +51,8 @@ function Browse() {
   initializeTaskList(dataArray);
   selectTask(0);
 
-  const cx = classNames.bind(styles);
-
   return(
-    <div className = {cx('browse')}>
+    <div className = {styles.browse}>
       <Provider store = {store}>
         <TaskList/>
         <TaskDetail/>

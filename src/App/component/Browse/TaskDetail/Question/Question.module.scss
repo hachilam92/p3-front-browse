@@ -6,7 +6,7 @@
   transition: max-height 0.3s ease-out 0s;
   font-family: museo-black, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
-  .title-bar{
+  .title_bar{
     display: flex;
     color: rgb(84, 90, 119);
     
@@ -24,7 +24,7 @@
     line-height: 20px;
   }
 
-  .input-wrapper{
+  .input_wrapper{
     display: flex;
     
     .avatar{
@@ -50,7 +50,7 @@
       cursor: text;
       overflow: hidden;
 
-      .text-area{
+      .text_area{
         border: none;
         outline: none;
         font-size: 14px;

@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 
 import styles from './PosterInfoList.module.scss';
 
@@ -15,10 +14,9 @@ function PosterInfoList({children}) {
       content = {children[index]}
     />
   );
-  const cx = classNames.bind(styles);
   
   return (
-    <div className = {cx('poster-info')}>
+    <div className = {styles.poster_info}>
       {posterInfoList}
     </div>
   );

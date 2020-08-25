@@ -1,16 +1,14 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 
 import styles from './Section.module.scss';
 
 function Section({title, children}) {
-  const cx = classNames.bind(styles);
   return(
-    <div className = {cx('section')}>
-      <div className = {cx('title')}>
+    <div className = {styles.section}>
+      <div className = {styles.title}>
         {title}
       </div>
-      <div className = {cx('content')}>
+      <div className = {styles.content}>
         {children}
       </div>
     </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 import {connect} from 'react-redux';
 
 import styles from './TaskDetail.module.scss';
@@ -11,20 +10,19 @@ import {Button} from '../../Button';
 import {Question} from './Question';
 
 function TaskDetail({details, id}) {
-  const cx = classNames.bind(styles);
   const offerButtonLabel = 'Make an offer';
   console.log(id);
 
   return(
-    <div className = {cx('task-detail')}>
+    <div className = {styles.task_detail}>
       <SideBar/>
       <Header/>
       <Section title = 'DETAILS'>
         {details}
       </Section>
       <Section title = 'OFFER'>
-        <div className = {cx('offer-icon')}></div>
-        <div className = {cx('button-wrapper')}>
+        <div className = {styles.offer_icon}></div>
+        <div className = {styles.button_wrapper}>
           <Button label = {offerButtonLabel}/>
         </div>
       </Section>

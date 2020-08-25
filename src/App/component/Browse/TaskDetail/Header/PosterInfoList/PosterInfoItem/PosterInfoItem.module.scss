@@ -11,7 +11,7 @@ $date-icon-url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqa
   background-color: white;
 }
 
-.poster-info-item{
+.poster_info_item{
   display: flex;
   text-align: left;
   position: relative;
@@ -27,7 +27,7 @@ $date-icon-url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqa
     background-color: #f6f8fd;
   }
 
-  .poster-detail{
+  .poster_detail{
     display: flex;
     flex-direction: column;
     margin-top: 13px;
@@ -42,7 +42,7 @@ $date-icon-url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqa
   }
 }
 
-.icon-wrapper{
+.icon_wrapper{
   width: 34px;
   height: 34px;
   margin-top: 13px;
@@ -63,12 +63,12 @@ $date-icon-url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqa
   }
 }
 
-.location-icon{
+.location_icon{
   @extend %icon;
   background-image: url($location-icon-url);
 }
 
-.date-icon{
+.date_icon{
   @extend %icon;
   background-image: url($date-icon-url);
 }

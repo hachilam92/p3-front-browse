@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 
 import styles from './TaskListItem.module.scss';
 
@@ -18,33 +17,32 @@ function TaskListItem(props) {
     props.onClick(id);
   }
 
-  const cx = classNames.bind(styles);
   return(
     <div 
-      className = {cx('task-list-item')}
+      className = {styles.task_list_item}
       onClick = {handleClick}
     >
-      <div className = {cx('header')}>
-        <div className = {cx('title')}>
+      <div className = {styles.header}>
+        <div className = {styles.title}>
           {title}
         </div>
-        <div className = {cx('budget')}>
+        <div className = {styles.budget}>
           ${budget}
         </div>
       </div>
-      <div className = {cx('content')}>
-        <div className = {cx('avatar')}>
+      <div className = {styles.content}>
+        <div className = {styles.avatar}>
           <img src = {poster.avatar} alt = 'avatar'/>
         </div>
-        <div className = {cx('location')}>
+        <div className = {styles.location}>
           {location}
         </div>
-        <div className = {cx('due')}>
+        <div className = {styles.due}>
           {due}
         </div>
       </div>
-      <div className = {cx('footer')}>
-        <div className = {cx('status')}>
+      <div className = {styles.footer}>
+        <div className = {styles.status}>
           {status}
         </div>
       </div>

@@ -4,7 +4,7 @@
   padding: 2px 12px;
 }
 
-.status-list{
+.status_list{
   margin: 20px 0;
   display: flex;
 
@@ -13,7 +13,7 @@
     color: rgb(187, 194, 220);
   }
 
-  .status-active{
+  .status_active{
     @extend %status;
     color: green;
     background-color: rgb(229, 240, 217);

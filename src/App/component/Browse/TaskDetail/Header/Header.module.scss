@@ -2,10 +2,15 @@
   display: flex;
   margin: 10px 20px;
 
-  .detail-panel{
+  .detail_panel{
     display: flex;
     flex-direction: column;
     justify-content: left;
+
+
+    .status_bar{
+      
+    }
 
     .title{
       height: auto;

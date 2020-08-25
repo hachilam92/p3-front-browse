@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import classNames from 'classnames/bind';
 
 import styles from './Question.module.scss';
 
@@ -13,20 +12,20 @@ function Question() {
   const title = 'QUESTION';
   const notice = `Please don't share personal info – insurance won't apply to tasks done privately!`;
   const placeHolder = 'Ask a question';
-  const cx = classNames.bind(styles);
+
   return (
-    <div className ={cx('question')}>
-      <div className = {cx('title-bar')}>
-        <div className = {cx('title')}>{title}</div>
+    <div className ={styles.question}>
+      <div className = {styles.title_bar}>
+        <div className = {styles.title}>{title}</div>
       </div>
-      <div className = {cx('notice')}>
+      <div className = {styles.notice}>
         {notice}
       </div>
-      <div className = {cx('input-wrapper')}>
-        <div className = {cx('avatar')}></div>
-        <div className = {cx('input')}>
+      <div className = {styles.input_wrapper}>
+        <div className = {styles.avatar}></div>
+        <div className = {styles.input}>
         <textarea 
-          className = {cx('text-area')}
+          className = {styles.text_area}
           placeholder = {placeHolder}
           value = {input}
           onChange = {handleChange}
