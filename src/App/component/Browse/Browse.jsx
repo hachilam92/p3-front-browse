@@ -36,6 +36,10 @@ function createData(size, data) {
 
 const dataArray = createData(10, testData);
 dataArray[1].title = 'Wall repair';
+dataArray[1].status = 'assigned';
+dataArray[2].status = 'completed';
+dataArray[3].status = 'expired';
+
 
 
 function Browse() {

@@ -5,12 +5,18 @@ import {connect} from 'react-redux';
 import styles from './StatusList.module.scss';
 
 function StatusList({status}) {
-  const statusNameList = ['OPEN', 'ASSIGN', 'COMPLETED'];
+  const statusNameList = ['open', 'assigned', 'completed', 'expired'];
   
   const cx = classNames.bind(styles);
   const statusList = statusNameList.map((statusName) =>
     <div 
-      className = {cx((status.toUpperCase() === statusName)? 'status_active':'status')}
+      className = {cx(
+        {
+          status: true,
+          active: status.toUpperCase() === statusName.toUpperCase(),
+        },
+        statusName
+      )}
       key = {statusName}
     >
       {statusName}

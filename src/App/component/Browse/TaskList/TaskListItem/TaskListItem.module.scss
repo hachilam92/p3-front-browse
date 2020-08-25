@@ -1,5 +1,6 @@
+@import '../../../scss-partial/status-color-code';
+
 $text-color: #292b32;
-$status-color: #7db343;
 $content-color: #545a77;
 
 .task_list_item{
@@ -22,7 +23,6 @@ $content-color: #545a77;
     bottom: 0;
     width: 4px;
     display: block;
-    background-color: $status-color;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
   }
@@ -96,10 +96,43 @@ $content-color: #545a77;
     border-top: 1px solid #e7ebfb;
 
     .status{
+      text-transform: uppercase;
       font-weight: 700;
       font-size: 11px;
+    }
+  }
+}
+
+@mixin status-color-code($status-color){
+  &:hover{
+    .footer{
+      .status{
+        color: $hover-color;
+      }
+    }
+  }
+  &::before{
+    background-color: $status-color;
+  }
+  .footer{
+    .status{
       color: $status-color;
     }
   }
 }
 
+.open{
+  @include status-color-code($open-color);
+}
+
+.assigned{
+  @include status-color-code($assigned-color);
+}
+
+.completed{
+  @include status-color-code($completed-color);
+}
+
+.expired{
+  @include status-color-code($expired-color);
+}

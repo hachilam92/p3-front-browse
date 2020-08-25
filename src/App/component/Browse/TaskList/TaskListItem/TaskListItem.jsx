@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 
 import styles from './TaskListItem.module.scss';
 
@@ -17,9 +18,14 @@ function TaskListItem(props) {
     props.onClick(id);
   }
 
+  const cx = classNames.bind(styles);
+
   return(
     <div 
-      className = {styles.task_list_item}
+      className = {cx(
+        'task_list_item',
+        status, 
+      )}
       onClick = {handleClick}
     >
       <div className = {styles.header}>
