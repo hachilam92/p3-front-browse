@@ -7,7 +7,6 @@ import {TaskListItem} from './TaskListItem';
 import * as Action from '../Store/Action';
 
 function TaskList(props) {
-
   const displayTasks = props.taskList.map((task) => 
     <TaskListItem
       key = {task.id}
@@ -23,12 +22,10 @@ function TaskList(props) {
   );
 }
 
-
 const mapStateToProps = ({taskList}) => ({taskList});
 
 const mapDispatchToProps = (dispatch) => ({
     select: (index) => {
-      console.log('select');
       return dispatch(Action.select(index));
     }
 });

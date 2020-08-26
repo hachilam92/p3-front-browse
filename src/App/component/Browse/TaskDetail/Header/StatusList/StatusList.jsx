@@ -31,8 +31,8 @@ function StatusList({status}) {
 
 }
 
-function mapStateToProps(state) {
-  const task = state.taskList[state.taskIndex];
+function mapStateToProps({taskList, taskIndex}) {
+  const task = taskList[taskIndex];
   const {status} = task;
   return {
     status 

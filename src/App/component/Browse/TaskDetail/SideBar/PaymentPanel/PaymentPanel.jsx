@@ -24,8 +24,8 @@ function PaymentPanel({status, budget}) {
   );
 }
 
-function mapStateToProps(state) {
-  const task = state.taskList[state.taskIndex];
+const mapStateToProps = ({taskList, taskIndex}) => {
+  const task = taskList[taskIndex];
   const {status, budget} = task;
   return {
     status,
