@@ -12,7 +12,7 @@ function TaskListItem(props) {
     location,
     due,
     id
-  } = props.data;
+  } = props.task;
 
   function handleClick() {
     props.onClick(id);

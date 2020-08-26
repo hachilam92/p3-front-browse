@@ -8,10 +8,10 @@ import * as Action from '../Store/Action';
 
 function TaskList(props) {
 
-  const displayTasks = props.taskList.map((data) => 
+  const displayTasks = props.taskList.map((task) => 
     <TaskListItem
-      key = {data.id}
-      data = {data}
+      key = {task.id}
+      task = {task}
       onClick = {props.select}
     />
   );
@@ -23,19 +23,14 @@ function TaskList(props) {
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    taskList: state.taskList
-  }
-}
 
-function mapDispatchToProps(dispatch) {
-  return {
+const mapStateToProps = ({taskList}) => ({taskList});
+
+const mapDispatchToProps = (dispatch) => ({
     select: (index) => {
       console.log('select');
       return dispatch(Action.select(index));
     }
-  }
-}
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList);
