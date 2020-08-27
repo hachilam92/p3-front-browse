@@ -1,1 +1,1 @@
-export {default as StatusList} from './StatusList';
+export {default} from './StatusList';

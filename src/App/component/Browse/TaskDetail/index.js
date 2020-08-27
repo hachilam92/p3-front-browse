@@ -1,1 +1,1 @@
-export {default as TaskDetail} from './TaskDetail';
+export {default} from './TaskDetail';

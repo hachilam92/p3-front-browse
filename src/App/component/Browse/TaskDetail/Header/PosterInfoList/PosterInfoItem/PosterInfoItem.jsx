@@ -4,8 +4,11 @@ import classNames from 'classnames/bind';
 import styles from './PosterInfoItem.module.scss';
 
 function PosterInfoItem({title, content}) {
+
   const cx = classNames.bind(styles);
+
   const displayContent = (content.name)? content.name : content;
+
   return (
     <div className = {styles.poster_info_item}>
       <div className = {styles.icon_wrapper}>
@@ -22,8 +25,12 @@ function PosterInfoItem({title, content}) {
         </div>
       </div>
       <div className = {styles.poster_detail}>
-        <div className = {styles.title}>{title}</div>
-        <div className = {styles.content}>{displayContent}</div>
+        <div className = {styles.title}>
+          {title}
+        </div>
+        <div className = {styles.content}>
+          {displayContent}
+        </div>
       </div>
     </div>
     

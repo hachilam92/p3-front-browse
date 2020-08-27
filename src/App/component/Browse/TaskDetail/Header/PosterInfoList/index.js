@@ -1,1 +1,1 @@
-export {default as PosterInfoList} from './PosterInfoList';
+export {default} from './PosterInfoList';

@@ -16,20 +16,22 @@ function Question() {
   return (
     <div className ={styles.question}>
       <div className = {styles.title_bar}>
-        <div className = {styles.title}>{title}</div>
+        <div className = {styles.title}>
+          {title}
+        </div>
       </div>
       <div className = {styles.notice}>
         {notice}
       </div>
       <div className = {styles.input_wrapper}>
-        <div className = {styles.avatar}></div>
+        <div className = {styles.avatar}/>
         <div className = {styles.input}>
-        <textarea 
-          className = {styles.text_area}
-          placeholder = {placeHolder}
-          value = {input}
-          onChange = {handleChange}
-        />
+          <textarea 
+            className = {styles.text_area}
+            placeholder = {placeHolder}
+            value = {input}
+            onChange = {handleChange}
+          />
         </div>
       </div>
     </div>

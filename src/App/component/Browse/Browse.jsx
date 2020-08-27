@@ -3,9 +3,9 @@ import {Provider} from 'react-redux';
 
 import styles from './Browse.module.scss';
 
-import {TaskList} from './TaskList';
-import {TaskDetail} from './TaskDetail';
-import {store} from './Store';
+import TaskList from './TaskList';
+import TaskDetail from './TaskDetail';
+import store from './Store';
 import * as Action from './Store/Action';
 
 const testData = {

@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import styles from './TaskListItem.module.scss';
 
-function TaskListItem(props) {
+function TaskListItem({task, onClick}) {
   const {
     title,
     status,
@@ -12,10 +12,10 @@ function TaskListItem(props) {
     location,
     due,
     id
-  } = props.task;
+  } = task;
 
   function handleClick() {
-    props.onClick(id);
+    onClick(id);
   }
 
   const cx = classNames.bind(styles);

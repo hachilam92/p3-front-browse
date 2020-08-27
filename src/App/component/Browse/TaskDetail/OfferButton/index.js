@@ -1,1 +1,1 @@
-export {default as OfferButton} from './OfferButton';
+export {default} from './OfferButton';

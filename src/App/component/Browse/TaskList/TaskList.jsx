@@ -3,15 +3,15 @@ import {connect} from 'react-redux';
 
 import styles from './TaskList.module.scss';
 
-import {TaskListItem} from './TaskListItem';
+import TaskListItem from './TaskListItem';
 import * as Action from '../Store/Action';
 
-function TaskList(props) {
-  const displayTasks = props.taskList.map((task) => 
+function TaskList({taskList, select}) {
+  const displayTasks = taskList.map((task) => 
     <TaskListItem
       key = {task.id}
       task = {task}
-      onClick = {props.select}
+      onClick = {select}
     />
   );
 

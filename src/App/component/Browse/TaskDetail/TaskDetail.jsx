@@ -3,11 +3,11 @@ import {connect} from 'react-redux';
 
 import styles from './TaskDetail.module.scss';
 
-import {Header} from './Header';
-import {Section} from './Section';
-import {SideBar} from './SideBar';
-import {OfferButton} from './OfferButton';
-import {Question} from './Question';
+import Header from './Header';
+import Section from './Section';
+import SideBar from './SideBar';
+import OfferButton from './OfferButton';
+import Question from './Question';
 
 
 function TaskDetail({status, details}) {
@@ -21,7 +21,7 @@ function TaskDetail({status, details}) {
         {details}
       </Section>
       <Section title = 'OFFER'>
-        <div className = {styles.offer_icon}></div>
+        <div className = {styles.offer_icon}/>
         <div className = {styles.button_wrapper}>
           <OfferButton active = {active}/>
         </div>

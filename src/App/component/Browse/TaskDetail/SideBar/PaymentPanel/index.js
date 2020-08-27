@@ -1,1 +1,1 @@
-export {default as PaymentPanel} from './PaymentPanel';
+export {default} from './PaymentPanel';

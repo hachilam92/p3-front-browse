@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './PosterInfoList.module.scss';
 
-import {PosterInfoItem} from './PosterInfoItem';
+import PosterInfoItem from './PosterInfoItem';
 
 function PosterInfoList({children}) {
   const titleList = ['POSTED BY', 'LOCATION', 'DUE DATE'];

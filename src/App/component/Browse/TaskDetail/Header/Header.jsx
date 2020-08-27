@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 
 import styles from './Header.module.scss';
 
-import {PosterInfoList} from './PosterInfoList';
-import {StatusList} from './StatusList'; 
+import PosterInfoList from './PosterInfoList';
+import StatusList from './StatusList'; 
 
 function Header({
   title, 

@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 
 import styles from './PaymentPanel.module.scss';
 
-import {OfferButton} from '../../OfferButton';
+import OfferButton from '../../OfferButton';
 
 function PaymentPanel({status, budget}) {
   const title = 'TASK BUDGET';
   const active = (status !== 'expired');
-  console.log(status);
+
   return(
     <div className = {styles.payment_panel}>
       <div className = {styles.title}>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './SideBar.module.scss';
 
-import {PaymentPanel} from './PaymentPanel';
+import PaymentPanel from './PaymentPanel';
 
 function SideBar() {
   return(
