@@ -14,8 +14,8 @@ function PosterInfoItem({title, content}) {
       <div className = {styles.icon_wrapper}>
         <div className = {cx({
           'avatar': title === 'POSTED BY',
-          'location-icon': title === 'LOCATION',
-          'date-icon': title === 'DUE DATE', 
+          'location_icon': title === 'LOCATION',
+          'date_icon': title === 'DUE DATE', 
         })}>
           {(title === 'POSTED BY')?
             <img src = {content.avatar} alt = 'avatar'/>
