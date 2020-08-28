@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import styles from './OfferButton.module.scss';
 
-export default function OfferButton({active}) {
+export default function OfferButton({ active }) {
   const activeLabel = 'Make an offer';
   const expireLabel = 'Expired';
   const buttonLabel = (active) ? activeLabel : expireLabel;

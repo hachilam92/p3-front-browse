@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import styles from './Header.module.scss';
 
@@ -8,7 +8,7 @@ import StatusList from './StatusList';
 import { selectTask } from '../../../Redux/Browse/selector';
 import { createStructuredSelector } from 'reselect';
 
-function Header({task}) {
+function Header({ task }) {
   const {
     title, 
     poster, 

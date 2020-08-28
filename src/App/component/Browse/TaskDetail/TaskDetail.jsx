@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import styles from './TaskDetail.module.scss';
 
@@ -12,8 +12,8 @@ import { selectTask } from '../../Redux/Browse/selector';
 import { createStructuredSelector } from 'reselect';
 
 
-function TaskDetail({task}) {
-  const {status, details} = task;
+function TaskDetail({ task }) {
+  const { status, details } = task;
 
   const active = (status !== 'expired');
 

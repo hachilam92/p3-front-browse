@@ -1,14 +1,14 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import styles from './StatusList.module.scss';
 
 import { selectTask } from '../../../../Redux/Browse/selector';
 import { createStructuredSelector } from 'reselect';
 
-function StatusList({task}) {
-  const {status} = task;
+function StatusList({ task }) {
+  const { status } = task;
 
   const cx = classNames.bind(styles);
 

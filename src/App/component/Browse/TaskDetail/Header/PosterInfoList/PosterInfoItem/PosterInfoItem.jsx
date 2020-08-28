@@ -3,11 +3,11 @@ import classNames from 'classnames/bind';
 
 import styles from './PosterInfoItem.module.scss';
 
-function PosterInfoItem({title, content}) {
+function PosterInfoItem({ title, content }) {
 
   const cx = classNames.bind(styles);
 
-  const displayContent = (content.name)? content.name : content;
+  const displayContent = (content.name) ? content.name : content;
 
   return (
     <div className = {styles.poster_info_item}>

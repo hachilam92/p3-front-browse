@@ -8,7 +8,7 @@ import * as Action from '../../Redux/Browse/action';
 import { selectTaskList } from '../../Redux/Browse/selector';
 import { createStructuredSelector } from 'reselect';
 
-function TaskList({taskList, select}) {
+function TaskList({ taskList, select }) {
   console.log(taskList);
   const displayTasks = taskList.map((task) => 
     <TaskListItem

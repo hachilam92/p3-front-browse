@@ -4,7 +4,7 @@ import styles from './PosterInfoList.module.scss';
 
 import PosterInfoItem from './PosterInfoItem';
 
-function PosterInfoList({children}) {
+function PosterInfoList({ children }) {
   const titleList = ['POSTED BY', 'LOCATION', 'DUE DATE'];
 
   const posterInfoList = titleList.map((title, index) =>

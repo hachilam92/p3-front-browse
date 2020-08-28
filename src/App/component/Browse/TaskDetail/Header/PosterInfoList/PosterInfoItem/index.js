@@ -1,1 +1,1 @@
-export {default} from './PosterInfoItem';
+export { default } from './PosterInfoItem';

@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import styles from './TaskListItem.module.scss';
 
-function TaskListItem({task, onClick}) {
+function TaskListItem({ task, onClick }) {
   const {
     title,
     status,
