@@ -5,13 +5,16 @@ import styles from './Header.module.scss';
 
 import PosterInfoList from './PosterInfoList';
 import StatusList from './StatusList'; 
+import { selectTask } from '../../../Redux/Browse/selector';
+import { createStructuredSelector } from 'reselect';
 
-function Header({
-  title, 
-  poster, 
-  location, 
-  due,  
-}) {
+function Header({task}) {
+  const {
+    title, 
+    poster, 
+    location, 
+    due,  
+  } = task;
 
   return (
     <div className = {styles.header}>
@@ -32,16 +35,9 @@ function Header({
  );
 }
 
-const mapStateToProps = ({taskList, taskIndex}) => {
-  const task = taskList[taskIndex];
-  const {title, poster, location, due} = task;
-  return {
-    title, 
-    poster, 
-    location, 
-    due,  
-  };
-}
+const mapStateToProps = createStructuredSelector({
+  task: selectTask, 
+});
 
 export default connect(mapStateToProps)(Header);
 

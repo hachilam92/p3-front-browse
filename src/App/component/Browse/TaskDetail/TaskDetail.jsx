@@ -8,9 +8,13 @@ import Section from './Section';
 import SideBar from './SideBar';
 import OfferButton from './OfferButton';
 import Question from './Question';
+import { selectTask } from '../../Redux/Browse/selector';
+import { createStructuredSelector } from 'reselect';
 
 
-function TaskDetail({status, details}) {
+function TaskDetail({task}) {
+  const {status, details} = task;
+
   const active = (status !== 'expired');
 
   return(
@@ -31,14 +35,18 @@ function TaskDetail({status, details}) {
   );
 }
 
-const mapStateToProps = ({taskList, taskIndex}) => {
-  const task = taskList[taskIndex];
-  const {status, details} = task;
-  return {
-    status, 
-    details,  
-  };
-}
+const mapStateToProps = createStructuredSelector({
+  task: selectTask, 
+});
+
+// const mapStateToProps = ({taskList, taskIndex}) => {
+//   const task = taskList[taskIndex];
+//   const {status, details} = task;
+//   return {
+//     status, 
+//     details,  
+//   };
+// }
 
 export default connect(mapStateToProps)(TaskDetail);
 

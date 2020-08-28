@@ -4,8 +4,12 @@ import {connect} from 'react-redux';
 import styles from './PaymentPanel.module.scss';
 
 import OfferButton from '../../OfferButton';
+import { selectTask } from '../../../../Redux/Browse/selector';
+import { createStructuredSelector } from 'reselect';
 
-function PaymentPanel({status, budget}) {
+function PaymentPanel({task}) {
+  const {status, budget} = task;
+
   const title = 'TASK BUDGET';
   const active = (status !== 'expired');
 
@@ -24,13 +28,8 @@ function PaymentPanel({status, budget}) {
   );
 }
 
-const mapStateToProps = ({taskList, taskIndex}) => {
-  const task = taskList[taskIndex];
-  const {status, budget} = task;
-  return {
-    status,
-    budget,   
-  };
-}
+const mapStateToProps = createStructuredSelector({
+  task: selectTask, 
+});
 
 export default connect(mapStateToProps)(PaymentPanel);

@@ -5,8 +5,8 @@ import styles from './Browse.module.scss';
 
 import TaskList from './TaskList';
 import TaskDetail from './TaskDetail';
-import store from './Store';
-import * as Action from './Store/Action';
+import store from '../Redux';
+import * as Action from '../Redux/Browse/action';
 
 const testData = {
   title: 'Roof repair',
