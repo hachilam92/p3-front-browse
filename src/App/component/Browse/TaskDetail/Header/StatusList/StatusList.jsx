@@ -16,14 +16,14 @@ function StatusList({ status }) {
         },
         statusName
       )}
-      key = {statusName}
+      key={statusName}
     >
       {statusName}
     </div>
   ));
 
   return (
-    <div className = {styles.status_list}>
+    <div className={styles.status_list} >
       {statusList}
     </div>
   );

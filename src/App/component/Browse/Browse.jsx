@@ -47,11 +47,6 @@ function Browse() {
 
   const taskReducer = (state, action) => {
 		switch(action.type) {
-			case 'INITIALIZE':
-				return {
-          ...state,
-          taskList: action.payload.taskList, 
-        };
       case 'SELECT':
         return {
           ...state,
@@ -71,12 +66,7 @@ function Browse() {
     });
   };
 
-  // dispatch({
-  //   type: 'INITIALIZE',
-  //   payload: { taskList: dataArray }, 
-  // });
-
-  const { taskList, taskIndex } = state;
+  const { taskList, taskIndex, } = state;
   const currentTask = taskList[taskIndex];
 
   return(
