@@ -1,19 +1,13 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import { connect } from 'react-redux';
 
 import styles from './StatusList.module.scss';
 
-import { selectTask } from '../../../../Redux/Browse/selector';
-import { createStructuredSelector } from 'reselect';
-
-function StatusList({ task }) {
-  const { status } = task;
-
+function StatusList({ status }) {
   const cx = classNames.bind(styles);
 
   const statusNameList = ['open', 'assigned', 'completed', 'expired'];
-  const statusList = statusNameList.map((statusName) =>
+  const statusList = statusNameList.map((statusName) => (
     <div 
       className = {cx(
         {
@@ -26,7 +20,7 @@ function StatusList({ task }) {
     >
       {statusName}
     </div>
-  );
+  ));
 
   return (
     <div className = {styles.status_list}>
@@ -36,8 +30,4 @@ function StatusList({ task }) {
 
 }
 
-const mapStateToProps = createStructuredSelector({
-  task: selectTask, 
-});
-
-export default connect(mapStateToProps)(StatusList);
+export default StatusList;

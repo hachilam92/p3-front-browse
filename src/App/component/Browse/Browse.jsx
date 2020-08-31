@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 import styles from './Browse.module.scss';
 
 import TaskList from './TaskList';
 import TaskDetail from './TaskDetail';
-import { TaskProvider } from './TaskContext';
 
 const testData = {
   title: 'Roof repair',
@@ -42,7 +41,7 @@ dataArray[3].status = 'expired';
 
 function Browse() {
   const initState = {
-    taskList: [],
+    taskList: dataArray,
     taskIndex: 0, 
   };
 
@@ -53,6 +52,11 @@ function Browse() {
           ...state,
           taskList: action.payload.taskList, 
         };
+      case 'SELECT':
+        return {
+          ...state,
+          taskIndex: action.payload.taskIndex, 
+        };
 			default:
 				return state;
 		}
@@ -60,22 +64,28 @@ function Browse() {
 
   const [state, dispatch] = useReducer(taskReducer, initState);
 
-  useEffect( () => dispatch({
-    type: 'INITIALIZE',
-    payload: { dataArray }, 
-  }),
-  [dispatch]
-  );
+  const selectTask = (taskIndex) => {
+    dispatch({
+      type: 'SELECT',
+      payload: { taskIndex }, 
+    });
+  };
+
+  // dispatch({
+  //   type: 'INITIALIZE',
+  //   payload: { taskList: dataArray }, 
+  // });
 
   const { taskList, taskIndex } = state;
   const currentTask = taskList[taskIndex];
 
   return(
-    <div className = {styles.browse}>
-      <TaskList taskList = {taskList} />
-      <TaskProvider task = {currentTask} >
-        <TaskDetail/>
-      </TaskProvider>
+    <div className = {styles.browse} >
+      <TaskList 
+        taskList = {taskList} 
+        selectTask = {selectTask}
+      />
+      <TaskDetail task = {currentTask} />
     </div>
   );
 }
