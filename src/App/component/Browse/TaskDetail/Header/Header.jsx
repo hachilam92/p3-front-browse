@@ -20,9 +20,7 @@ function Header() {
                   <div className = {styles.title}>
                     <h1>{title}</h1>
                   </div>
-                  <PosterInfoList>
-                    {poster}{location}{due}
-                  </PosterInfoList>
+                  <PosterInfoList posterInfo={[poster, location, due]} />
                 </div>
               );
             }
