@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 
 import styles from './Browse.module.scss';
@@ -41,30 +41,13 @@ dataArray[3].status = 'expired';
 
 
 function Browse({ match }) {
-  const initState = {
-    taskList: dataArray,
-    taskIndex: 0, 
-  };
-
-  const taskReducer = (state, action) => {
-		switch(action.type) {
-      case 'SELECT':
-        return {
-          ...state,
-          taskIndex: action.payload.taskIndex, 
-        };
-			default:
-				return state;
-		}
-	}
 
   //eslint-disable-next-line
-  const [state, dispatch] = useReducer(taskReducer, initState); 
-  const { taskList } = state;
+  const [taskList, setTaskList] = useState(dataArray);
 
   return(
     <div className = {styles.browse} >
-      <TaskList taskList = {taskList} />
+      <TaskList taskList={taskList} />
       <Route path={`${match.path}/:taskId`} >
         <TaskDetail taskList={taskList} />
       </Route>
