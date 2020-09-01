@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 import styles from './Browse.module.scss';
 
@@ -39,7 +40,7 @@ dataArray[3].status = 'expired';
 
 
 
-function Browse() {
+function Browse({ match }) {
   const initState = {
     taskList: dataArray,
     taskIndex: 0, 
@@ -59,25 +60,22 @@ function Browse() {
 
   const [state, dispatch] = useReducer(taskReducer, initState);
 
-  const selectTask = (taskIndex) => {
-    dispatch({
-      type: 'SELECT',
-      payload: { taskIndex }, 
-    });
-  };
+  const { taskList } = state;
 
-  const { taskList, taskIndex, } = state;
-  const currentTask = taskList[taskIndex];
+  const taskDetail = taskList.map((task) => (
+    <Route path={`${match.url}/${task.id}`} key={task.id} >
+      <TaskDetail task = {task} />
+    </Route>
+  ));
 
   return(
     <div className = {styles.browse} >
-      <TaskList 
-        taskList = {taskList} 
-        selectTask = {selectTask}
-      />
-      <TaskDetail task = {currentTask} />
+      <TaskList taskList = {taskList} />
+      <Switch>
+        {taskDetail}
+      </Switch>
     </div>
   );
 }
 
-export default Browse;
+export default withRouter(Browse);

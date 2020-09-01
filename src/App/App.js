@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
 
@@ -7,7 +8,9 @@ import {Browse} from './component/Browse';
 function App() {
   return (
     <div className="App">
-      <Browse/>
+      <Switch>
+        <Route path='/tasks' component={Browse}></Route>
+      </Switch>
     </div>
   );
 }
