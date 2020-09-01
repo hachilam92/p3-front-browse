@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import styles from './Browse.module.scss';
 
@@ -26,7 +26,7 @@ function createData(size, data) {
   const dataArray = [];
   for(let i = 0; i < size; i ++) {
     const newData = {...data};
-    newData.id = i;
+    newData.id = `${i}`;
     dataArray.push(newData);
   }
   return dataArray;
@@ -58,22 +58,16 @@ function Browse({ match }) {
 		}
 	}
 
-  const [state, dispatch] = useReducer(taskReducer, initState);
-
+  //eslint-disable-next-line
+  const [state, dispatch] = useReducer(taskReducer, initState); 
   const { taskList } = state;
-
-  const taskDetail = taskList.map((task) => (
-    <Route path={`${match.url}/${task.id}`} key={task.id} >
-      <TaskDetail task = {task} />
-    </Route>
-  ));
 
   return(
     <div className = {styles.browse} >
       <TaskList taskList = {taskList} />
-      <Switch>
-        {taskDetail}
-      </Switch>
+      <Route path={`${match.path}/:taskId`} >
+        <TaskDetail taskList={taskList} />
+      </Route>
     </div>
   );
 }

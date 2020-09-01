@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import styles from './TaskDetail.module.scss';
 
@@ -9,7 +10,8 @@ import OfferButton from './OfferButton';
 import Question from './Question';
 import { TaskProvider } from '../TaskContext';
 
-function TaskDetail({ task }) {
+function TaskDetail({ taskList, match }) {
+  const task = taskList.find(task => task.id === match.params.taskId);
   const { status, details } = task;
 
   const active = (status !== 'expired');
@@ -34,5 +36,5 @@ function TaskDetail({ task }) {
   );
 }
 
-export default TaskDetail;
+export default withRouter(TaskDetail);
 
